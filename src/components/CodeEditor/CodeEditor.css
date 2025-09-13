@@ -1,0 +1,213 @@
+.code-editor {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(135deg, #0a0a0f 0%, #1a1a1a 100%);
+  border: 1px solid var(--border-color);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  position: relative;
+  min-height: 0;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.code-editor:hover {
+  border-color: var(--border-hover);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), var(--shadow-md);
+}
+
+.code-editor:focus-within {
+  border-color: var(--accent-primary);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+/* Ensure the editor container has proper overflow handling */
+.code-editor > div {
+  height: 100% !important;
+  overflow: auto !important;
+  position: relative !important;
+}
+
+/* Fix the react-simple-code-editor internal structure */
+.code-editor textarea,
+.code-editor pre {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 16px !important;
+  border: none !important;
+  outline: none !important;
+  background: transparent !important;
+  white-space: pre-wrap !important;
+  word-wrap: break-word !important;
+  overflow: visible !important;
+  resize: none !important;
+  font-family: inherit !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+}
+
+/* Ensure textarea is on top for input */
+.code-editor textarea {
+  z-index: 2 !important;
+  color: transparent !important;
+  caret-color: #ffffff !important;
+}
+
+/* Ensure pre is behind for syntax highlighting */
+.code-editor pre {
+  z-index: 1 !important;
+  color: #ffffff !important;
+  pointer-events: none !important;
+}
+
+/* Remove any duplicate content issues */
+.code-editor pre code {
+  display: block !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  background: transparent !important;
+  color: inherit !important;
+  white-space: inherit !important;
+  word-wrap: inherit !important;
+}
+
+/* Prevent any content duplication */
+.code-editor pre::before,
+.code-editor pre::after,
+.code-editor textarea::before,
+.code-editor textarea::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Ensure only one layer of content is visible */
+.code-editor pre[class*="language-"] {
+  z-index: 1 !important;
+  pointer-events: none !important;
+  background: transparent !important;
+}
+
+.code-editor textarea.npm__react-simple-code-editor__textarea {
+  z-index: 2 !important;
+  background: transparent !important;
+  color: transparent !important;
+  caret-color: #ffffff !important;
+}
+
+.code-editor .npm__react-simple-code-editor__textarea,
+.code-editor .npm__react-simple-code-editor__textarea:focus {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  color: transparent !important;
+  caret-color: #ffffff !important;
+  z-index: 2 !important;
+}
+
+/* Ensure proper positioning for react-simple-code-editor */
+.code-editor .npm__react-simple-code-editor__textarea,
+.code-editor pre[class*="language-"] {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 16px !important;
+  border: none !important;
+  white-space: pre-wrap !important;
+  word-wrap: break-word !important;
+  overflow: hidden !important;
+}
+
+/* Custom scrollbar for code editor */
+.code-editor ::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+.code-editor ::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 6px;
+  margin: 4px;
+}
+
+.code-editor ::-webkit-scrollbar-thumb {
+  background: var(--accent-gradient);
+  border-radius: 6px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  transition: all 0.3s ease;
+}
+
+.code-editor ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #5855f0 0%, #7c3aed 100%);
+  transform: scale(1.1);
+}
+
+.code-editor ::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Ensure proper syntax highlighting */
+.code-editor .token.comment,
+.code-editor .token.prolog,
+.code-editor .token.doctype,
+.code-editor .token.cdata {
+  color: #6a9955;
+}
+
+.code-editor .token.punctuation {
+  color: #d4d4d4;
+}
+
+.code-editor .token.property,
+.code-editor .token.tag,
+.code-editor .token.boolean,
+.code-editor .token.number,
+.code-editor .token.constant,
+.code-editor .token.symbol,
+.code-editor .token.deleted {
+  color: #b5cea8;
+}
+
+.code-editor .token.selector,
+.code-editor .token.attr-name,
+.code-editor .token.string,
+.code-editor .token.char,
+.code-editor .token.builtin,
+.code-editor .token.inserted {
+  color: #ce9178;
+}
+
+.code-editor .token.operator,
+.code-editor .token.entity,
+.code-editor .token.url,
+.code-editor .language-css .token.string,
+.code-editor .style .token.string {
+  color: #d4d4d4;
+}
+
+.code-editor .token.atrule,
+.code-editor .token.attr-value,
+.code-editor .token.keyword {
+  color: #569cd6;
+}
+
+.code-editor .token.function,
+.code-editor .token.class-name {
+  color: #dcdcaa;
+}
+
+.code-editor .token.regex,
+.code-editor .token.important,
+.code-editor .token.variable {
+  color: #d16969;
+}
