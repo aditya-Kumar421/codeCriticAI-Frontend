@@ -28,7 +28,26 @@ export class CodeReviewService {
         prompt: code,
       });
 
-      return response.data;
+      // Debug: Log the response structure
+      console.log('API Response:', response.data);
+
+      // Extract the actual review text from the response
+      // Handle different possible response formats
+      if (typeof response.data === 'string') {
+        return response.data;
+      } else if (response.data && typeof response.data.response === 'string') {
+        return response.data.response;
+      } else if (response.data && typeof response.data.review === 'string') {
+        return response.data.review;
+      } else if (response.data && typeof response.data.message === 'string') {
+        return response.data.message;
+      } else if (response.data && typeof response.data.text === 'string') {
+        return response.data.text;
+      } else {
+        // Fallback: convert to string if all else fails
+        console.warn('Unexpected response format:', response.data);
+        return JSON.stringify(response.data, null, 2);
+      }
     } catch (error) {
       console.error('Error reviewing code:', error);
       

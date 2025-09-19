@@ -1,17 +1,20 @@
 .review-panel {
   height: 100%;
+  width: 100%;
   background: var(--surface-bg);
   backdrop-filter: var(--blur-backdrop);
   border: 1px solid var(--border-color);
   border-radius: 1rem;
   padding: 2rem;
   overflow-y: auto;
+  overflow-x: hidden;
   font-size: 1rem;
   line-height: 1.7;
   color: var(--text-primary);
   position: relative;
   box-shadow: var(--shadow-xl);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-sizing: border-box;
 }
 
 .review-panel:hover {
@@ -108,6 +111,10 @@
 /* Content styles */
 .review-panel__content {
   height: 100%;
+  width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  box-sizing: border-box;
 }
 
 /* Review headings */
@@ -159,6 +166,10 @@
   border-radius: 0.75rem;
   padding: 1rem;
   border: 1px solid var(--border-color);
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-width: 100%;
 }
 
 /* Lists */

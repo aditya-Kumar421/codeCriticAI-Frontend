@@ -1,0 +1,427 @@
+.codecritic2 {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--primary-bg);
+}
+
+.codecritic2__header {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: var(--blur-backdrop);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1.5rem 2rem;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.codecritic2__header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--accent-gradient);
+  opacity: 0.08;
+  pointer-events: none;
+}
+
+.codecritic2__header::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--accent-gradient);
+  opacity: 0.5;
+}
+
+.codecritic2__title-section {
+  position: relative;
+  z-index: 1;
+}
+
+.codecritic2__title {
+  font-size: 2rem;
+  font-weight: 700;
+  background: var(--accent-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* margin: 0 0 0.5rem 0; */
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* .codecritic2__title::before {
+  content: '🚀';
+  font-size: 1.5rem;
+} */
+
+.codecritic2__subtitle {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.codecritic2__badges {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.codecritic2__badge {
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.codecritic2__badge--new {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  color: white;
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+  animation: pulse-new 2s infinite;
+}
+
+@keyframes pulse-new {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.codecritic2__badge--streaming {
+  background: var(--accent-gradient);
+  color: white;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+.codecritic2__badge--session {
+  background: rgba(34, 197, 94, 0.2);
+  color: #22c55e;
+  border-color: #22c55e;
+}
+
+/* Navigation buttons in header */
+.codecritic2__nav-button {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  border: 1px solid var(--border-color);
+  background: var(--surface-bg);
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+  backdrop-filter: var(--blur-backdrop);
+}
+
+.codecritic2__nav-button:hover {
+  background: var(--accent-gradient);
+  color: white;
+  border-color: transparent;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+.codecritic2__main {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  gap: 2rem;
+  min-height: 0;
+}
+
+.codecritic2__editor-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface-bg);
+  backdrop-filter: var(--blur-backdrop);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  overflow: hidden;
+  min-height: 0;
+  max-height: 100%;
+  box-shadow: var(--shadow-xl);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.codecritic2__editor-section:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-xl), 0 0 0 1px var(--accent-primary);
+}
+
+.codecritic2__editor-header {
+  padding: 1.5rem 2rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.codecritic2__editor-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.codecritic2__editor-title::before {
+  content: '💻';
+  font-size: 1.25rem;
+}
+
+.codecritic2__editor-controls {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.codecritic2__stream-btn {
+  background: var(--accent-gradient) !important;
+  border: none !important;
+  color: white !important;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+  transition: all 0.3s ease;
+}
+
+.codecritic2__stream-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+}
+
+.codecritic2__stream-btn:disabled {
+  opacity: 0.6;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.codecritic2__editor-content {
+  flex: 1;
+  padding: 1.5rem;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.codecritic2__review-section {
+  flex: 1;
+  min-height: 0;
+}
+
+.codecritic2__footer {
+  background: rgba(255, 255, 255, 0.02);
+  border-top: 1px solid var(--border-color);
+  padding: 1rem 2rem;
+  flex-shrink: 0;
+}
+
+.codecritic2__stats {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.codecritic2__stat {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.codecritic2__stat-label {
+  color: var(--text-muted);
+}
+
+.codecritic2__stat-value {
+  color: var(--text-primary);
+  font-weight: 600;
+  font-family: 'Fira Code', monospace;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+}
+
+/* Enhanced animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.codecritic2__editor-section,
+.codecritic2__review-section {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.codecritic2__editor-section {
+  animation-delay: 0.1s;
+}
+
+.codecritic2__review-section {
+  animation-delay: 0.2s;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .codecritic2__main {
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+  
+  .codecritic2__header {
+    padding: 1.5rem;
+  }
+  
+  .codecritic2__title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .codecritic2__main {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+  }
+  
+  .codecritic2__editor-section,
+  .codecritic2__review-section {
+    min-height: 350px;
+  }
+  
+  .codecritic2__header {
+    padding: 1rem;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+  
+  .codecritic2__title {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  
+  .codecritic2__subtitle {
+    text-align: center;
+  }
+  
+  .codecritic2__badges {
+    justify-content: center;
+  }
+  
+  .codecritic2__editor-header {
+    padding: 1rem 1.5rem;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+  
+  .codecritic2__editor-controls {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .codecritic2__editor-content {
+    padding: 1rem;
+  }
+  
+  .codecritic2__stats {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .codecritic2__main {
+    padding: 0.75rem;
+    gap: 0.75rem;
+  }
+  
+  .codecritic2__header {
+    padding: 0.75rem;
+  }
+  
+  .codecritic2__title {
+    font-size: 1.25rem;
+  }
+  
+  .codecritic2__subtitle {
+    font-size: 0.875rem;
+  }
+  
+  .codecritic2__badges {
+    gap: 0.5rem;
+  }
+  
+  .codecritic2__badge {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.6875rem;
+  }
+  
+  .codecritic2__editor-header {
+    padding: 0.75rem 1rem;
+  }
+  
+  .codecritic2__editor-content {
+    padding: 0.75rem;
+  }
+  
+  .codecritic2__editor-section,
+  .codecritic2__review-section {
+    min-height: 300px;
+    border-radius: 0.75rem;
+  }
+  
+  .codecritic2__footer {
+    padding: 0.75rem 1rem;
+  }
+  
+  .codecritic2__stat {
+    font-size: 0.75rem;
+  }
+}
+
+/* Loading shimmer effect for placeholders */
+@keyframes shimmer {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
+}
+
+.loading-skeleton {
+  background: linear-gradient(90deg, var(--surface-bg) 25%, rgba(255, 255, 255, 0.1) 50%, var(--surface-bg) 75%);
+  background-size: 400% 100%;
+  animation: shimmer 1.2s ease-in-out infinite;
+}

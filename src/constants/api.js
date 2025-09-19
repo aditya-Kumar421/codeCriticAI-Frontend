@@ -6,6 +6,7 @@ export const API_BASE_URL = 'https://code-critic-ai-rho.vercel.app';
 
 export const API_ENDPOINTS = {
   AI_REVIEW: '/ai/get-response',
+  AI_STREAM: '/ai/stream',
 };
 
 export const API_CONFIG = {

@@ -1,0 +1,1 @@
+export { default as CodeCritic2 } from './CodeCritic2.jsx';

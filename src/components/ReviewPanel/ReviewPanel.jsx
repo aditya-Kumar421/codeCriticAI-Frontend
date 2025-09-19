@@ -44,6 +44,9 @@ const ReviewPanel = ({
       );
     }
 
+    // Ensure review is a string for Markdown component
+    const reviewText = typeof review === 'string' ? review : JSON.stringify(review, null, 2);
+
     return (
       <div className="review-panel__content">
         <Markdown
@@ -68,7 +71,7 @@ const ReviewPanel = ({
             li: ({ children }) => <li className="review-list-item">{children}</li>,
           }}
         >
-          {review}
+          {reviewText}
         </Markdown>
       </div>
     );
@@ -82,7 +85,7 @@ const ReviewPanel = ({
 };
 
 ReviewPanel.propTypes = {
-  review: PropTypes.string,
+  review: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   isLoading: PropTypes.bool,
   error: PropTypes.string,
   className: PropTypes.string,
